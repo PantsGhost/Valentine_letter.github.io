@@ -8,22 +8,40 @@
     <link rel="stylesheet" href="style.css">
 
 </head>
+
+
     <body>
         <div class="container">
 
-            <div class="letter">
+            <div class="envelope" id="envelope"> <!--actually holds all components together-->
+
+                <div class="letter">
                 <!--Testing here-->
+                </div>
+
+                <div class="flap" id="letter_lines"></div>
+            
+                <button id="heart" aria-label="Open letter" aria-expanded="false"></button>
+                <!--Aria label is an invisible label-->
+
             </div>
 
-            <div id="letter_lines"></div>
-            <div id="heart"></div>
 
-
- 
 
         </div>
 
 
+
+    <script>
+        const heart = document.getElementById("heart");
+        const envelope = document.getElementById("envelope");
+
+        heart.addEventListener("click", () => {
+            const isOpen = envelope.classList.toggle("open"); /*switches to open state*/
+            heart.setAttribute("aria-expanded", String(isOpen));
+        });
+    </script>
+    
 
 
 

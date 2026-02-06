@@ -20,17 +20,26 @@ body{
     gap: 10px;
 }
 
+/*Evnelope will give poistioning context to items inside*/
+.envelope{
+    position: relative;
+    width: 560px;
+    height: 300px;
+}
+
 .letter{
     position: relative;
+    left: 0;
+    top: 0;
 
     background-color: beige;
     width: 560px;
     height: 300px;
 
-    display:flex;
-    align-items: center;
-    justify-content: center; /*centers horizontally*/
-    /*border-radius: 10px; /*makes box smooth edges*/
+    /*animates the letter to slide up*/
+    transform: translateY(0);
+    transition: transform 600ms ease;
+    /*examples of transition: https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_speed*/
 }
 
 #letter_lines{
@@ -41,6 +50,10 @@ body{
     
     width: 115px;
     height: 90px;
+    z-index: 3; /*This is like layering, so this will be 3rd least top thing*/
+
+    transform-origin: top center;
+    transition: transform 600ms ease;
 }
 
 #letter_lines:before{
@@ -88,12 +101,19 @@ body{
 
 #heart{
     position: absolute;
-    top:55%;
+    top:60%;
     left:50.5%;
     transform: translate(-50%, -50%);
     
     width: 115px;
     height: 90px;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    z-index: 4;
 }
 
 #heart:before{
@@ -138,4 +158,33 @@ body{
         -ms-transform-origin: 100% 100%; 
          -o-transform-origin: 100% 100%; 
             transform-origin :100% 100%; 
+}
+
+#heart::before, #heart::after{
+     pointer-events: none; /*allows clicks to go through heart*/
+}
+
+/*This part makes it feel like a button*/
+#heart:hover::before,#heart:hover::after{
+    background-color: rgb(245, 74, 74);
+}
+
+/*when clicked, will do this*/
+#heart:active{
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+/*when envelope is open*/
+.envelope.open #letter_lines{
+    transform: translate(-50%, -50%) rotateX(160deg);
+}
+
+.envelope.open .letter{
+    transform: translateY(-80px);
+}
+
+.envelope.open #heart{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
 }
