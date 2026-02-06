@@ -28,25 +28,32 @@ body{
     width: 560px;
     height: 300px;
     perspective: 1000px; /*gives depth*/
+    
+    overflow: visible; /*if element exceeds boundaries, it will show*/
+}
+
+.shell{
+    position: absolute;
+    inset: 0;
+    z-index: 5; /*top most thing*/
+
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 700ms ease, opacity 500ms ease;
 }
 
 .env_body{
     position: absolute;
     inset: 0;
-    /*left: 0;
-    top: 0;*/
 
     background-color: beige;
     z-index: 2;
-    /*width: 560px;
-    height: 300px;*/
-
 }
 
 #env_lines{
     position: absolute;
     inset: 0;
-    z-index: 4; /*This is like layering, so this will be 4th top thing*/
+    z-index: 4; /*This is like layering, so 1 is lowest layer, this will be 4th top thing*/
 
     /*Allows for non-rectangular shapes*/
     clip-path: polygon(0 0, 100% 0, 50% 55%);
@@ -81,14 +88,14 @@ body{
     right: 20px;
     bottom: 20px;
     height: 240px;
+    border-radius: 6px;
 
     background: rgb(255, 250, 240);
-    z-index: 1;
+    z-index: 5;
 
-    /* animates the paper sliding out*/
-    transform: translateY(0);
-    transition: transform 600ms ease;
-    border-radius: 6px;
+    /*makes the paper appear/slide out*/
+    transition: transform 700ms ease;
+
 }
 
 #heart{
@@ -169,12 +176,19 @@ body{
 
 
 /*when envelope is open*/
+.envelope.open .shell{
+    /*will drop envelope*/
+    transform: translateY(220px);
+    opacity: 0;
+    pointer-events: none;
+}
+
 .envelope.open #env_lines{
     transform: rotateX(180deg);
 }
 
 .envelope.open .paper{
-    transform: translateY(-120px);
+    transform: translateY(-80px);
 }
 
 .envelope.open #heart{
