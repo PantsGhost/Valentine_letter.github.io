@@ -45,60 +45,35 @@ body{
 
 #env_lines{
     position: absolute;
-    top:-130px;
-    left:50%;
-    
-    width: 115px;
-    height: 90px;
+    inset: 0;
+    z-index: 4; /*This is like layering, so this will be 4th top thing*/
 
-    transform: translateX(-50%) rotateX(0deg);
-    transform-origin: center;
+    /*Allows for non-rectangular shapes*/
+    clip-path: polygon(0 0, 100% 0, 50% 55%);
+
+    /*This actually draws these lines onto the envelope, crazy*/
+    background:
+        linear-gradient(to bottom right, 
+        transparent calc(50% - 2px),
+        rgb(190, 190, 146) calc(50% - 2px),
+        rgb(190, 190, 146) calc(50% + 2px),
+        transparent calc(50% + 2px)
+        ),
+
+        linear-gradient(to bottom left, 
+        transparent calc(50% - 2px),
+        rgb(190, 190, 146) calc(50% - 2px),
+        rgb(190, 190, 146) calc(50% + 2px),
+        transparent calc(50% + 2px)
+        );
+
+    transform: rotateX(0deg);
+    transform-origin: top center;
     transition: transform 600ms ease;
 
-    z-index: 4; /*This is like layering, so this will be 4th top thing*/
+    backface-visibility: hidden; /*avoids werid mirrored look*/
 }
 
-#env_lines:before{
-    position: absolute; 
-    content: ""; 
-    left: 30px; 
-    top: 0; 
-    width: 5px; 
-    height: 310px; 
-    background: rgb(190, 190, 146); 
-
-    -webkit-transform: rotate(-55deg); /* 45 degrees rotation counter clockwise */
-       -moz-transform: rotate(-55deg); 
-        -ms-transform: rotate(-55deg); 
-         -o-transform: rotate(-55deg); 
-            transform: rotate(-55deg); 
-    -webkit-transform-origin: 0 100%; /* Rotate it around the bottom-left corner */
-       -moz-transform-origin: 0 100%; 
-        -ms-transform-origin: 0 100%; 
-         -o-transform-origin: 0 100%; 
-            transform-origin: 0 100%;
-}
-
-#env_lines:after{
-    position: absolute; 
-    content: ""; 
-    left: 80px; 
-    top: 0; 
-    width: 5px; 
-    height: 310px; 
-    background: rgb(190, 190, 146); 
-
-    -webkit-transform: rotate(55deg); /* rotating 45 degrees clockwise */
-       -moz-transform: rotate(55deg); 
-        -ms-transform: rotate(55deg); 
-         -o-transform: rotate(55deg); 
-            transform: rotate(55deg); 
-    -webkit-transform-origin: 100% 100%; /* rotation is around bottom-right corner this time */
-       -moz-transform-origin: 100% 100%; 
-        -ms-transform-origin: 100% 100%; 
-         -o-transform-origin: 100% 100%; 
-            transform-origin :100% 100%; 
-}
 
 .paper{
     position: absolute;
@@ -118,7 +93,7 @@ body{
 
 #heart{
     position: absolute;
-    top:60%;
+    top:55%;
     left:50.5%;
     transform: translate(-50%, -50%);
     
@@ -195,7 +170,7 @@ body{
 
 /*when envelope is open*/
 .envelope.open #env_lines{
-    transform: translateX(-50%) rotateX(180deg);
+    transform: rotateX(180deg);
 }
 
 .envelope.open .paper{
