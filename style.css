@@ -1,5 +1,8 @@
     /*examples of transition: https://www.w3schools.com/css/tryit.asp?filename=trycss3_transition_speed*/
 
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -12,6 +15,13 @@ body{
     display: flex; /*adjusts display size*/
     align-items: center; /*centers vertically*/
     justify-content: center; /*centers horizontally*/
+}
+
+.font-1{
+    font-family: "Playwrite NZ basic", cursive;
+    font-size: x-large;
+    text-align: center;
+    padding: 15px;
 }
 
 .container{

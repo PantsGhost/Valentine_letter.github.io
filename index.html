@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content = "width=device-width, initial-scale=1" />
     <title> What's this? </title>
+    
     <link rel = "heart_icon" type="images/png" herf = "heart_favicon.png"/>
     <link rel="stylesheet" href="style.css">
 
@@ -15,7 +16,7 @@
 
             <div class="envelope" id="envelope"> <!--actually holds all components together-->
                 <div class="paper">
-                    hello vro
+                    <p class="font-1" id="letterText"> </p>
                 </div>
 
                 <div class="shell">
@@ -34,6 +35,47 @@
 
 
     <script>
+
+        const messages = [
+            "Happy valentine day! Thank you for being in my life and taking care of me :)",
+            "I lava you a lot :3",
+            "Roses are red, violets are blue, ummmm MWAH! I LOVE YOU!",
+            "You don't need keys to drive me crazy ;)",
+            "Quick question: Are you sunburned, or are you always this hot?",
+            "Do you have a name? Oh wait, you're mine",
+            "Are you the moon? Because you light the path and make sure I'm safe when times are dark.",
+            "I can turn your software into hardware.",
+            "You should play gd, but instead of your sayo device you should... ummm.... nvm i'm too embarrassed.",
+            "You're cute!",
+            "I miss your handsome nose. Mwah!",
+            "Handsome, caring, silly babby",
+            "You make me feel complete",
+            "I see a future ever since I've met you. Thank you <3",
+            "You keep me going. Your support, you listening, and you spending time with me has really helped me. I don't think I would have made it this far without you.",
+            "I love you!",
+            "You got pretty eyes. I could get lost in them for hours",
+            "Heyyyyy dimples ;)",
+            "Gilbert and Goober should meet irl sometime :D",
+            "Can you be the vandal to my phantom?",
+            "You should run... into my arms! (KJ)",
+            "Are you Kay-o, cause you sure can make me feel powerless",
+            "I LOVE YOU DOG! (insert meme)",
+            "If you were a vegetable, you'd be a cute-cumber",
+            "Call me chamber the way I say 'ooh I like it', 'oh im enjoying this' and 'this is too fun'",
+            "I suggest you move... into my bed :D (harbor)",
+            "Can we put our minecraft beds next to each other? :D",
+            "Can you be the crafting table to my furnace?",
+            "You must be redstone because you activate my heart",
+            "Call me flint and steel, the way I make you explode",
+            "Are you a blaze, cause I need your rod..... (im sorry)",
+            "Are you a heart crystal? Cause you give me life",
+            "Call me the 6th level of geometry dash because I can't let go of you!"
+        ]
+
+        const letterTextEl = document.getElementById("letterText");
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        letterTextEl.textContent = randomMessage;
+
         const heart = document.getElementById("heart");
         const envelope = document.getElementById("envelope");
 
@@ -42,9 +84,9 @@
             heart.setAttribute("aria-expanded", String(isOpen));
         });
 
-        document.addEventListener('mousemove', (e) => {
+        /*document.addEventListener('mousemove', (e) => {
         console.log(`X: ${e.clientX}, Y: ${e.clientY}`);
-        });
+        });*/
     </script>
     
 
