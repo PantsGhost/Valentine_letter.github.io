@@ -16,7 +16,10 @@
 
             <div class="envelope" id="envelope"> <!--actually holds all components together-->
                 <div class="paper">
+                    
+                    <img id="letterImage" alt="" class="letter-image" />
                     <p class="font-1" id="letterText"> </p>
+
                 </div>
 
                 <div class="shell">
@@ -36,27 +39,84 @@
 
     <script>
 
-        const messages = [
-            "Happy valentine day! Thank you for being in my life and taking care of me :)",
-            "I lava you a lot :3",
-            "Roses are red, violets are blue, ummmm MWAH! I LOVE YOU!",
-            "You don't need keys to drive me crazy ;)",
-            "Quick question: Are you sunburned, or are you always this hot?",
-            "Do you have a name? Oh wait, you're mine",
-            "Are you the moon? Because you light the path and make sure I'm safe when times are dark.",
-            "I can turn your software into hardware.",
-            "You should play gd, but instead of your sayo device you should... ummm.... nvm i'm too embarrassed.",
-            "You're cute!",
-            "I miss your handsome nose. Mwah!",
-            "Handsome, caring, silly babby",
-            "You make me feel complete",
-            "I see a future ever since I've met you. Thank you <3",
-            "You keep me going. Your support, you listening, and you spending time with me has really helped me. I don't think I would have made it this far without you.",
-            "I love you!",
-            "You got pretty eyes. I could get lost in them for hours",
-            "Heyyyyy dimples ;)",
-            "Gilbert and Goober should meet irl sometime :D",
-            "Can you be the vandal to my phantom?",
+        const letters = [
+            {
+                text: "Happy Valentine day! Thank you for being in my life and taking care of me :)",
+                image: "images/cat_rose.png"
+            },
+            {
+                text: "I lava you a lot :3",
+                image: "images/Lava_Spawner.png"
+            },
+            {
+                text: "Roses are red, violets are blue, ummmm MWAH! I LOVE YOU!",
+                image: "images/me.jpg"
+            },
+            {
+                text: "You don't need keys to drive me crazy ;)",
+                image: "images/f1_car.jpg"
+            },
+            {
+                text: "Quick question: Are you sunburned, or are you always this hot?",
+                image: "images/wink.png"
+            },
+            {
+                text: "Do you have a name? Oh wait, you're mine"
+            },
+            {
+                text: "Are you the moon? Because you light the path and make sure I'm safe when times are dark.",
+            },
+            {
+                text: "I can turn your software into hardware :P"
+            },
+            {
+                text: "You should play gd, but instead of your sayo device you should... ummm.... nvm i'm too embarrassed."
+            },
+            {
+                text: "You're cute!",
+                image: "images/cat-cut.gif"
+            },
+            {
+                text: "I miss your handsome nose. Mwah!",
+                image: "images/cat.png"
+            },
+            {
+                text: "Handsome, caring, silly babby",
+                image: "images/heart_c.png"
+            },
+            {
+                text: "You make me feel complete",
+                image: "images/us.png"
+            },
+            {
+                text: "Before I met you, I didn't really see a future. I just did things that I needed to do and just knew I would someday be somewhere. And then I met you. You gave my future a purpose and now I know exactly what I want. Thank you Cooper, I hope we can keep experiencing life together <3"
+            },
+            {
+                text: "You keep me going. Your support, you listening, and you spending time with me has really helped me. I don't think I would have made it this far without you."
+
+            },
+            {
+                text: "I love you!",
+                image: "images/giving_roses.png"
+            },
+            {
+                text: "You got pretty eyes. I could get lost in them for hours",
+                image: "images/ocean.jpg"
+            },
+            {
+                text: "Heyyyyy dimples ;)"
+            },
+            {
+                text: "Gilbert and Goober should meet irl soon :D",
+                image: "images/gill_goo.png"
+            },
+            {
+                text: "Can you be the vandal to my phantom?",
+                image: 
+            },
+            {
+
+            },
             "You should run... into my arms! (KJ)",
             "Are you Kay-o, cause you sure can make me feel powerless",
             "I LOVE YOU DOG! (insert meme)",
@@ -73,8 +133,19 @@
         ]
 
         const letterTextEl = document.getElementById("letterText");
-        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        letterTextEl.textContent = randomMessage;
+        const letterImageEl = document.getElementById("letterImage");
+
+        const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+        
+        letterTextEl.textContent = randomLetter.text;
+
+        if(randomLetter.image){
+            letterImageEl.src = randomLetter.image;
+            letterImageEl.style.display = "block";
+        }else{
+            letterImageEl.style.display = "none";
+        }
+
 
         const heart = document.getElementById("heart");
         const envelope = document.getElementById("envelope");
