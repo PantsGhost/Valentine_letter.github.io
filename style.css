@@ -11,8 +11,11 @@
 
 body{
     background-image: url("flowersss.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
-    display:flex; /*adjusts display size*/
+    display: flex; /*adjusts display size*/
     align-items: center; /*centers vertically*/
     justify-content: center; /*centers horizontally*/
 }
