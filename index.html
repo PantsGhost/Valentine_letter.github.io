@@ -5,13 +5,16 @@
     <meta name="viewport" content = "width=device-width, initial-scale=1" />
     <title> What's this? </title>
     
-    <link rel = "heart_icon" type="images/png" herf = "heart_favicon.png"/>
+    <link rel = "heart_icon" type="png" herf = "heart_favicon.png"/>
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 
     <body>
+
+        
+
         <div class="container">
 
             <div class="envelope" id="envelope"> <!--actually holds all components together-->
@@ -31,11 +34,9 @@
 
             </div>
 
-
-
         </div>
 
-
+        <div class="flower-container"> </div>
 
     <script>
 
@@ -190,6 +191,66 @@
             const isOpen = envelope.classList.toggle("open"); /*switches to open state*/
             heart.setAttribute("aria-expanded", String(isOpen));
         });
+
+        const flowerContainer = document.querySelector(".flower-container");
+
+        const flowerImages = [
+            "flowers/1.png",
+            "flowers/2.png",
+            "flowers/3.png",
+            "flowers/4.png",
+            "flowers/5.png"
+        ];
+
+        const MIN_DELAY = 300;
+        const MAX_DELAY = 2000;
+        const MAX_ON_SCREEN = 50;
+
+        function spawnFlower(){
+            if (!flowerContainer) return;
+            if (flowerContainer.children.length >= MAX_ON_SCREEN) return;
+
+            const flower = document.createElement("img");
+            flower.classList.add("flower");
+
+            flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+
+            
+            flower.style.left = (Math.random() * 90 + 5) + "%";
+            flower.style.transform = 'translateX(-50%)';
+
+            flowerContainer.appendChild(flower);
+
+        }
+
+        function randomSpawn(){
+            spawnFlower();
+            const delay = MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY);
+        }
+        
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        randomSpawn();
+        
 
         /*document.addEventListener('mousemove', (e) => {
         console.log(`X: ${e.clientX}, Y: ${e.clientY}`);

@@ -24,6 +24,22 @@ body{
     padding: 15px;
 }
 
+.flower-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.flower{
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    width: auto;
+}
+
+
 .letter-image{
     max-width:70%;
     max-height: 120px;
