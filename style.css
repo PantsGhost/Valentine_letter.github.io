@@ -10,9 +10,9 @@
 }
 
 body{
-    background-color: rgb(233, 182, 243);
+    background-image: url("flowersss.png");
     height: 100vh;
-    display: flex; /*adjusts display size*/
+    display:flex; /*adjusts display size*/
     align-items: center; /*centers vertically*/
     justify-content: center; /*centers horizontally*/
 }
