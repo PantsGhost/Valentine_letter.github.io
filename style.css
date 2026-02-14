@@ -11,6 +11,7 @@
 
 body{
     background-image: url("flowers.png");
+    background-size: cover;
     height: 100vh;
     display:flex; /*adjusts display size*/
     align-items: center; /*centers vertically*/
