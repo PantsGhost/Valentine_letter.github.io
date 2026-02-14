@@ -10,8 +10,7 @@
 }
 
 body{
-    background-image: url("flowersss.png");
-    background-size: cover;
+    background-image: url("flowerss.png");
     height: 100vh;
     display:flex; /*adjusts display size*/
     align-items: center; /*centers vertically*/
